@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">多线程断点续传下载1.1</string>
+    <!-- 
+    http://img5.duitang.com/uploads/item/201406/17/20140617143047_W4JSR.thumb.700_0.jpeg
+   http://wta.newhua.com/down/imooc.apk
+    -->
+  	<string name="file_url">http://wta.newhua.com/down/imooc.apk</string>
+  	<string name="file_name">imooc.apk</string>
+    
+
+</resources>
