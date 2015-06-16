@@ -3,6 +3,7 @@ package com.gzc.servicemulthreaddownload;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.gzc.adapter.FileListAdapter;
 import com.gzc.entity.FileInfo;
 import com.gzc.service.DownloadService;
 import com.gzc.util.Const;
@@ -75,40 +76,6 @@ public class MainActivity extends Activity {
 
 	private void initUi() {
 		mLvFileName = (ListView) this.findViewById(R.id.lvFileName);
-
-//		String url = this.getString(R.string.file_url);  
-//		String fileName = this.getString(R.string.file_name);
-		// 创建下载文件实体类
-		// ID得从0开始，因为ListView的项pos是从0开始的
-//		 final FileInfo fileInfo = new FileInfo(0, url, fileName, 0, 0);
-//		 final FileInfo fileInfo1 = new FileInfo(
-//		 1,
-//		 "http://img5.duitang.com/uploads/item/201406/17/20140617143047_W4JSR.thumb.700_0.jpeg",
-//		 "20140617143047_W4JSR.thumb.700_0.jpeg", 0, 0);
-//		 final FileInfo fileInfo2 = new FileInfo(
-//		 2,
-//		 "http://img6.cache.netease.com/cnews/2015/4/29/20150429083755285d6_550.jpg",
-//		 "20150429083755285d6_550.jpg", 0, 0);
-//		 final FileInfo fileInfo3 = new FileInfo(
-//		 3,
-//		 "http://img1.cache.netease.com/cnews/2015/4/29/201504290902259b46b_550.jpg",
-//		 "201504290902259b46b_550.jpg", 0, 0);
-//		 final FileInfo fileInfo4 = new FileInfo(
-//		 4,
-//		 "http://img6.cache.netease.com/cnews/2015/4/29/20150429090354c462c_550.jpg",
-//		 "20150429090354c462c_550.jpg", 0, 0);
-//		 final FileInfo fileInfo5 = new FileInfo(
-//		 5,
-//		 "http://img4.cache.netease.com/cnews/2015/4/29/20150429083554543a1_550.png",
-//		 "20150429083554543a1_550.png", 0, 0);
-//		 final FileInfo fileInfo6 = new FileInfo(
-//		 6,
-//		 "http://img3.cache.netease.com/cnews/2015/4/29/20150429083556f2110_550.png",
-//		 "20150429083556f2110_550.png", 0, 0);
-//		 final FileInfo fileInfo7 = new FileInfo(
-//		 7,
-//		 "http://img1.cache.netease.com/cnews/2015/4/29/201504290835590ddb8_550.png",
-//		 "201504290835590ddb8_550.png", 0, 0);
 		
 		String strIp = "http://192.168.56.1:8080/";
 		final FileInfo fileInfo1 = new FileInfo(0,
@@ -132,7 +99,7 @@ public class MainActivity extends Activity {
 
 		// 创建文件集合
 		mFileInfos = new ArrayList<FileInfo>();
-//		mFileInfos.add(fileInfo);
+
 		mFileInfos.add(fileInfo1);
 		mFileInfos.add(fileInfo2);
 		mFileInfos.add(fileInfo3);
@@ -140,10 +107,10 @@ public class MainActivity extends Activity {
 		mFileInfos.add(fileInfo5);
 		mFileInfos.add(fileInfo6);
 		mFileInfos.add(fileInfo7);
-		 mFileInfos.add(fileInfo8);
-		 mFileInfos.add(fileInfo9);
+		mFileInfos.add(fileInfo8);
+		mFileInfos.add(fileInfo9);
 
-		this.mAdapter = new FileListAdapter(mFileInfos, this);
+		this.mAdapter = new FileListAdapter(this, mFileInfos, R.layout.list_item);
 		// 给ListView设置适配器
 		mLvFileName.setAdapter(mAdapter);
 	}
